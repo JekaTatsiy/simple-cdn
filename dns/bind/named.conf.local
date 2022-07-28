@@ -1,0 +1,26 @@
+include "/etc/bind/geo/GeoIP.acl";
+
+# CDN for SNG
+view "russia" {
+    match-clients { AM; AZ; BY; GE; KG; KZ; RU; TM; TJ; UA; UZ; };
+    recursion yes;
+
+    zone "localhost" {
+        type master;
+        file "/etc/bind/zones/ru.localhost";
+    };
+};
+
+# CDN for Others
+view "global" {
+    match-clients { any; };
+
+    recursion yes;
+
+    zone "localhost" {
+        type master;
+        file "/etc/bind/zones/nil.localhost";
+    };
+
+};
+
