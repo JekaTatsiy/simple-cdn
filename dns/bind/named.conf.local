@@ -19,7 +19,7 @@ view "global" {
 
     zone "minicdn.herokuapp.com" {
         type master;
-        file "/etc/bind/zones/nil.localhost";
+        file "/etc/bind/zones/ru.localhost";
     };
 
 };

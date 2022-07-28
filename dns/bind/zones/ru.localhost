@@ -8,4 +8,4 @@ $TTL    3600 ; 1 hour
 
 $TTL 0  ; 0 seconds
                         NS      minicdn.herokuapp.com.
-                        A       62.76.187.192
+                        A       172.16.1.3
