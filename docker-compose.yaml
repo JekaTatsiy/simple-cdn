@@ -1,0 +1,32 @@
+version: '3.0'
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.1.0/24
+
+services:
+  gate:
+    container_name: gate
+    build: gate
+    ports:
+      - 80:80
+      
+  dns:
+    container_name: dns
+    restart: always
+    build: dns
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    networks:
+      default:
+        ipv4_address: 172.16.1.5
+
+#  bridge:
+#    container_name: bridge
+#    build: .
+#    ports:
+#      - 2000:3000
