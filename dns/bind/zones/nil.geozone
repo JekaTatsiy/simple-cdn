@@ -7,5 +7,5 @@ $TTL    3600 ; 1 hour
                           600 )         ; Negative Cache TTL [1h]
 
 $TTL 0  ; 0 seconds
-                        NS      minicdn.herokuapp.com.
-                        A       172.16.1.3
+                        NS      cdn.site.com.
+                        A       172.16.1.10

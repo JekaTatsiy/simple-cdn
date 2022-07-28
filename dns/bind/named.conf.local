@@ -5,9 +5,9 @@ view "russia" {
     match-clients { AM; AZ; BY; GE; KG; KZ; RU; TM; TJ; UA; UZ; };
     recursion yes;
 
-    zone "minicdn.herokuapp.com" {
+    zone "cdn.site.com" {
         type master;
-        file "/etc/bind/zones/ru.localhost";
+        file "/etc/bind/zones/ru.geozone";
     };
 };
 
@@ -17,9 +17,9 @@ view "global" {
 
     recursion yes;
 
-    zone "minicdn.herokuapp.com" {
+    zone "cdn.site.com" {
         type master;
-        file "/etc/bind/zones/ru.localhost";
+        file "/etc/bind/zones/ru.geozone";
     };
 
 };
