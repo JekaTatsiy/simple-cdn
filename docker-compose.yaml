@@ -12,7 +12,7 @@ services:
     container_name: gate
     build: gate
     ports:
-      - 80:80
+      - ${PORT}:80
       
   dns:
     container_name: dns
