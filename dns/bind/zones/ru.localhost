@@ -7,5 +7,5 @@ $TTL    3600 ; 1 hour
                           600 )         ; Negative Cache TTL [1h]
 
 $TTL 0  ; 0 seconds
-                        NS      https://minicdn.herokuapp.com.
+                        NS      minicdn.herokuapp.com.
                         A       62.76.187.192

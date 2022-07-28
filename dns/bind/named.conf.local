@@ -5,7 +5,7 @@ view "russia" {
     match-clients { AM; AZ; BY; GE; KG; KZ; RU; TM; TJ; UA; UZ; };
     recursion yes;
 
-    zone "localhost" {
+    zone "minicdn.herokuapp.com" {
         type master;
         file "/etc/bind/zones/ru.localhost";
     };
@@ -17,7 +17,7 @@ view "global" {
 
     recursion yes;
 
-    zone "localhost" {
+    zone "minicdn.herokuapp.com" {
         type master;
         file "/etc/bind/zones/nil.localhost";
     };
