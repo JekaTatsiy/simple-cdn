@@ -13,9 +13,10 @@ services:
     container_name: gate
     build: gate
     ports:
-      - ${PORT}:80
+      - 80:80
     networks:
-      - default
+      default:
+        ipv4_address: 172.16.1.2
 
   # здесь хрнанятся данные
   center:
@@ -34,9 +35,9 @@ services:
     container_name: dns
     restart: always
     build: dns
-    expose:
-      - "53/udp"
-      - "53/tcp"
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
     networks:
       default:
         ipv4_address: 172.16.1.5
@@ -54,7 +55,7 @@ services:
     container_name: node2
     build: node
     ports:
-      - 3001:80
+      - 4000:80
     networks:
       default:
         ipv4_address: 172.16.1.11

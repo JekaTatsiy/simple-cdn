@@ -8,4 +8,4 @@ $TTL    3600 ; 1 hour
 
 $TTL 0  ; 0 seconds
                         NS      cdn.site.com.
-                        A       172.16.1.11
+                        A       127.0.0.1
