@@ -1,3 +1,0 @@
-FROM ubuntu:latest
-COPY . .
-# как-то надо их отдавать...

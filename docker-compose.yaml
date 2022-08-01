@@ -15,27 +15,28 @@ services:
     ports:
       - ${PORT}:80
     networks:
-      default:
-        ipv4_address: 172.16.1.2
+      - default
 
   # здесь хрнанятся данные
   center:
     container_name: center
     build: center
-    ports:
-      - :80
+    expose:
+      - 80
     networks:
       default:
         ipv4_address: 172.16.1.3
+    volumes:
+      - ./data:/data
 
   # здесь определяется ip сервера для запроса
   dns:
     container_name: dns
     restart: always
     build: dns
-    ports:
-      - ":53/udp"
-      - ":53/tcp"
+    expose:
+      - "53/udp"
+      - "53/tcp"
     networks:
       default:
         ipv4_address: 172.16.1.5
@@ -44,6 +45,8 @@ services:
   node1:
     container_name: node1
     build: node
+    ports:
+      - 3000:80
     networks:
       default:
         ipv4_address: 172.16.1.10
@@ -51,7 +54,7 @@ services:
     container_name: node2
     build: node
     ports:
-      - 1000:80
+      - 3001:80
     networks:
       default:
         ipv4_address: 172.16.1.11
