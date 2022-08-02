@@ -7,3 +7,6 @@ up:	build
 
 down: 
 	docker compose down
+
+cert:
+	cd ./key && bash create_cert.sh site.com
