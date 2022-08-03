@@ -13,7 +13,7 @@ services:
     container_name: gate
     build: gate
     ports:
-      - 443:443
+      - 80:80
     networks:
       default:
         ipv4_address: 172.16.1.2
@@ -23,31 +23,31 @@ services:
     container_name: center
     build: center
     ports:
-      - 80:80
+      - 1000:80
     networks:
       default:
         ipv4_address: 172.16.1.3
     volumes:
       - ./data:/data
 
-  # сторонний dns сервер
-  dns:
-    container_name: dns
-    restart: always
-    build: dns
-    ports:
-      - "53:53/udp"
-      - "53:53/tcp"
-    networks:
-      default:
-        ipv4_address: 172.16.1.9
+  # выполняет роль стороннего dns сервера
+#  dns:
+#    container_name: dns
+#    restart: always
+#    build: dns
+#    ports:
+#      - "53:53/udp"
+#      - "53:53/tcp"
+#    networks:
+#      default:
+#        ipv4_address: 172.16.1.9
 
   # внешние серверы
   node1:
     container_name: node1
     build: node
     ports:
-      - 85:443
+      - 85:80
     networks:
       default:
         ipv4_address: 172.16.1.10
@@ -55,7 +55,7 @@ services:
     container_name: node2
     build: node
     ports:
-      - 86:443
+      - 86:80
     networks:
       default:
         ipv4_address: 172.16.1.11
